@@ -35,7 +35,7 @@
 
 		z = operative.z_calulate(inputs, w, b, inputsNum, neuronNum);
 		a = operative.sigmoid(z, neuronNum);
-		da = operative.sigmoid_Derivative(a, neuronNum);
+		da = operative.sigmoid_Derivative(a, neuronNum); //getInfo();
 	}
 
 	void Layer::backwardLayer(double error[]) {
@@ -57,6 +57,9 @@
 
 	void Layer::computeLayerError() {
 		error = new double[inputsNum];
+		for (int i = 0; i < inputsNum; i++) {
+			error[i] = 0;
+		}
 		for (int j = 0; j < inputsNum; j++) {
 			for (int i = 0; i < neuronNum; i++) {
 				error[j] += delta[i] * wT[j][i];
@@ -96,6 +99,10 @@
 		}
 
 		cout << "\n\n\n\n";
+	}
+
+	void Layer::getInfo2() {
+
 	}
 
 	int Layer::getInputsNum() { return inputsNum; }

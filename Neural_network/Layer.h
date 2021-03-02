@@ -36,7 +36,7 @@ class Layer {
 		void updateLayerParameters(double n);
 		void computeLayerError(); 
 		
-		void getInfo();
+		void getInfo(); void getInfo2();
 
 		int getInputsNum();
 		int getNeuronNum();
